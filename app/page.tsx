@@ -4,10 +4,14 @@ import Hero from "@/components/section/Hero";
 import Products from "@/components/section/Products";
 import { useEffect, useState } from "react";
 // import Api from '@/app/api/products/route'
-
+import { useCart } from "@/lib/CartContext";
+import {typeProduct} from '../lib/type'
 
 export default function Home() {
-  const [products, setProducts] = useState<any[]>([]);
+  const [products, setProducts] = useState<typeProduct[]>([]);
+  
+ 
+
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -26,16 +30,18 @@ export default function Home() {
     fetchProducts();
   }, []);
 
+  
+
   return (
     <>
       <Hero />
 
       {products.slice(0,4).length > 0 && (
-          <Products products={products.slice(0,4)} titlename={"NEW ARRIVALS"} />
+          <Products products={products.slice(0, 4)} titlename={"NEW ARRIVALS"} />
       )}
 
       {products.slice(4,8).length > 0 && (
-        <Products products={products.slice(4,8)} titlename={"TOP SELLING"}/>
+        <Products products={products.slice(4, 8)} titlename={"TOP SELLING"} />
       )}
 
       <Customers/>

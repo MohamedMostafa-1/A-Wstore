@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import React, { ReactNode } from "react";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
+import { CartProvider } from "@/lib/CartContext";
 
 
 function LayoutWrapper({children }:{children :React.ReactNode}) {
@@ -14,7 +15,9 @@ function LayoutWrapper({children }:{children :React.ReactNode}) {
     return(
         <>
         {showLayout && <NavBar/>}
-          <main>{children}</main>
+          <CartProvider>
+            {children}
+          </CartProvider>
         {showLayout && <Footer/>}
         </>
     );

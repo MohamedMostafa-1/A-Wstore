@@ -34,7 +34,7 @@ const Hero = () => {
           </p>
 
           <Link href="/products" className="w-fit">
-            <button className="bg-black text-white px-6 py-3 rounded-full font-semibold hover:bg-gray-800 transition">
+            <button className="cursor-pointer bg-black text-white px-6 py-3 rounded-full font-semibold hover:bg-gray-800 transition">
               Shop Now
             </button>
           </Link>

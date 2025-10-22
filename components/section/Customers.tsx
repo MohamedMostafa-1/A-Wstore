@@ -32,11 +32,37 @@ const Customers = () => {
         What Our Customers Say
       </h2>
 
-      <Marquee gradient={true}    gradientColor="black"  gradientWidth={100} speed={50} pauseOnHover={true}>
+      <Marquee gradient={true} direction="left"   gradientColor="black"  gradientWidth={100} speed={50} pauseOnHover={true}>
         {reviews.map((r, index) => (
           <div
             key={index}
-            className="w-80 mx-4 p-6 rounded-2xl bg-gray-800 shadow-lg hover:shadow-amber-500/20 transition-shadow duration-300 flex flex-col gap-4"
+            className="w-80 m-4 p-6  rounded-2xl bg-gray-800 shadow-lg hover:shadow-amber-500/20 transition-shadow duration-300 flex flex-col gap-4"
+          >
+            {/* Rating */}
+            <div className="flex items-center gap-1 text-amber-400">
+              <FaStar />
+              <FaStar />
+              <FaStar />
+              <FaStar />
+              <FaStar />
+            </div>
+
+            {/* User Info */}
+            <div className="flex items-center gap-2">
+              <h3 className="text-white font-semibold text-lg">{r.title}</h3>
+              <FaCheckCircle className="text-amber-500" />
+            </div>
+
+            {/* Description */}
+            <p className="text-gray-300 text-sm leading-relaxed">{r.describetion}</p>
+          </div>
+        ))}
+      </Marquee>
+      <Marquee gradient={true}  direction="right"  gradientColor="black"  gradientWidth={100} speed={50} pauseOnHover={true}>
+        {reviews.map((r, index) => (
+          <div
+            key={index}
+            className="w-80 m-4 p-6  rounded-2xl bg-gray-800 shadow-lg hover:shadow-amber-500/20 transition-shadow duration-300 flex flex-col gap-4"
           >
             {/* Rating */}
             <div className="flex items-center gap-1 text-amber-400">

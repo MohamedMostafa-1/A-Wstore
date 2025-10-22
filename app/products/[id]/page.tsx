@@ -4,8 +4,9 @@ import React, { useEffect, useState } from 'react';
  import { Niconne } from 'next/font/google';
 import Image from 'next/image';
 import { FaStar, FaStarHalf } from 'react-icons/fa';
-import { useCart } from "@/lib/usecart";
+import { useCart } from "@/lib/CartContext";
 import {typeProduct} from '@/lib/type'
+
 
 interface Product {
   sizes: any;
@@ -19,7 +20,7 @@ interface Product {
  // add anything  
 }
 
-const Page = ({ productToCart }: { productToCart: typeProduct }) => {
+const Page = () => {
     const {id} = useParams();
     const [product , setProduct] =useState<Product | null>(null)
     //add to cart 
@@ -116,7 +117,7 @@ const Page = ({ productToCart }: { productToCart: typeProduct }) => {
           </div>
 
           {/*add  to cart*/}
-          <button onClick={()=> addToCart(productToCart)} className="mt-6 bg-amber-500 hover:bg-amber-600 text-black px-6 py-3 rounded-xl font-bold shadow-lg transition-all">
+          <button onClick={()=> addToCart(product)} className="cursor-pointer  mt-6 bg-amber-500 hover:bg-amber-600 text-black px-6 py-3 rounded-xl font-bold shadow-lg transition-all">
              Add to Cart 🛒
           </button>
         </div>
