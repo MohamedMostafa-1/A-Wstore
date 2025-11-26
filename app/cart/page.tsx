@@ -5,8 +5,7 @@ import Image from "next/image";
 import { Trash2, Plus, Minus } from "lucide-react"; // أيقونات جميلة
 
 const CartPage = () => {
-  const { cart, removeFromCart, clearCart, decreaseQuantity, increaseQuantity } =
-    useCart();
+  const { cart, removeFromCart, clearCart, decreaseQuantity, increaseQuantity }:any = useCart();
 
   // ✅ الحالة لما السلة فاضية
   if (cart.length === 0) {
@@ -32,7 +31,7 @@ const CartPage = () => {
 
   // ✅ حساب المجموع الكلي
   const total = cart.reduce(
-    (sum, item) => sum + item.price * (item.quantity || 1),
+    (sum: number, item: { price: number; quantity: any; }) => sum + item.price * (item.quantity || 1),
     0
   );
 
@@ -43,7 +42,7 @@ const CartPage = () => {
       </h1>
 
       <div className="space-y-5">
-        {cart.map((item) => (
+        {cart.map((item: any) => (
           <div
             key={item.id}
             className="flex items-center justify-between bg-white p-4 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-all"

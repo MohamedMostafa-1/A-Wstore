@@ -12,7 +12,6 @@ export default function Home() {
   
  
 
-
   useEffect(() => {
     const fetchProducts = async () => {
       try {

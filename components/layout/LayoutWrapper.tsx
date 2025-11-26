@@ -7,6 +7,7 @@ import Footer from "./Footer";
 import { CartProvider } from "@/lib/CartContext";
 
 
+
 function LayoutWrapper({children }:{children :React.ReactNode}) {
     const pathname = usePathname();
     const nolayoutpage =[ "/signin" ,"/signup"]
@@ -14,11 +15,11 @@ function LayoutWrapper({children }:{children :React.ReactNode}) {
 
     return(
         <>
-        {showLayout && <NavBar/>}
           <CartProvider>
-            {children}
-          </CartProvider>
-        {showLayout && <Footer/>}
+            {showLayout && <NavBar/>}
+              {children}
+            {showLayout && <Footer/>}
+          </CartProvider>       
         </>
     );
     

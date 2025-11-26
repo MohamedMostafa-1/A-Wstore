@@ -113,43 +113,6 @@ const Hero = () => {
                   />
                 </div>
               ))}
-           
-            
-            {/* <Image
-              src="/Hero/Group.png"
-              alt="brand"
-              width={90}
-              height={80}
-              className="object-contain mx-12"
-            />
-            <Image
-              src="/Hero/Vector.png"
-              alt="brand"
-              width={90}
-              height={80}
-              className="object-contain mx-12"
-            />
-            <Image
-              src="/Hero/Vector (1).png"
-              alt="brand"
-              width={90}
-              height={80}
-              className="object-contain mx-12"
-            />
-            <Image
-              src="/Hero/Vector (2).png"
-              alt="brand"
-              width={90}
-              height={80}
-              className="object-contain mx-12"
-            />
-            <Image
-              src="/Hero/Vector (3).png"
-              alt="brand"
-              width={90}
-              height={80}
-              className="object-contain mx-12"
-            /> */}
           </Marquee>
         </div>
 

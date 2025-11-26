@@ -24,7 +24,7 @@ const Page = () => {
     const {id} = useParams();
     const [product , setProduct] =useState<Product | null>(null)
     //add to cart 
-    const {addToCart} = useCart()
+    const {addToCart}: any = useCart()
 
     useEffect(()=>{
         const fetchProducts = async ()=>{
@@ -49,7 +49,7 @@ const Page = () => {
     }
 
  return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white py-12 px-6">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-black text-white py-12 px-6">
       <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
         
         {/* image product*/}

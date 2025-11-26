@@ -31,7 +31,7 @@ type ProductsProps ={
 
 
 const Products = ({products,titlename  }:ProductsProps ) => {
-   const {addToCart} = useCart()
+   const {addToCart} :any = useCart()
 
     
     // const [{   price, category , image}] = products;

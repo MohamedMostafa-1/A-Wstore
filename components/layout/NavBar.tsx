@@ -1,12 +1,18 @@
+"use client";
+
 import Link from 'next/link'
 import React, { useState } from 'react'
 import { GrCart } from 'react-icons/gr'
 import { LiaUserCircleSolid } from 'react-icons/lia'
 import { FiSearch } from "react-icons/fi"
 import { HiMenuAlt3, HiX } from 'react-icons/hi'
+import { useCart } from '@/lib/CartContext'
+
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const {cart}: any  = useCart();
+  const cartCount :number = cart.length;
 
   const links = [
     { title: "Home", link: "/" },
@@ -72,10 +78,17 @@ const NavBar = () => {
             />
           </div>
 
-          {/* icons */}
+          {/* icons */} 
           <div className="flex gap-3">
-            <Link href="/cart">
-              <GrCart size={20} />
+           <Link href="/cart">
+              <div className='relative cursor-pointer'>
+                <GrCart size={20} />              
+                {cartCount > 0 && (
+                  <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs px-1.5 py-0.3 rounded-full">
+                    {cartCount}
+                  </span>
+                )}
+              </div>
             </Link>
             <Link href="/profile">
               <LiaUserCircleSolid size={22} />
