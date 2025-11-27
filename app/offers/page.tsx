@@ -6,6 +6,7 @@ import { FaStar, FaStarHalf } from "react-icons/fa";
 import { useCart } from "@/lib/CartContext";
 import { ReactNode, useEffect, useState } from "react";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
+import { stringify } from "querystring";
 
 
 type Product = {
@@ -57,9 +58,9 @@ const Offers = ( ) => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 place-items-center px-3">
         {products.map((product) => {
-          const newPrice = product.discount
-            ? product.price - product.price * (product.discount / 100)
-            : product.price;
+          const newPrice = Number(product.discount)
+            ? Number(product.price) - Number(product.price) * (Number(product.discount) / 100)
+            : Number(product.price);
 
           return (
             <div
@@ -70,7 +71,7 @@ const Offers = ( ) => {
                 <div className="relative w-full h-52 overflow-hidden">
                   <Image
                     src={product.image}
-                    alt ={product.title}
+                    alt ={""}
                     width={500}
                     height={500}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
